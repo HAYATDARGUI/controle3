@@ -4,55 +4,56 @@ import { useParams } from 'react-router-dom';
 
 export default function DetailUser() {
     const { id } = useParams()
-    const { data } = useSelector(state => state.user)
-    const selectedUser = data.users.filter(user => user.id == id)
+    const { listuser } = useSelector(state => state.user.user)
+    const selectedUser = listuser.users.filter(item => item.id == id)
     return (
         <div>
             {
-                selectedUser.map(user => <div className='Details' key={user.id}>
+                selectedUser.map(item => <div className='Details' key={item.id}>
                     <div className='image'>
-                        <img src={user.image} alt="Profile Picture" />
+                        <img src={item.image} alt="Picture" />
                     </div>
                     <div>
-                        <div className='detail'>
-                            <label>nom: </label>
-                            <span>{`${user.firstName} ${user.lastName}`}</span>
+                        <div className='section'>
+                            <label>username: </label>
+                            <span>{`${item.firstName} ${item.lastName}`}</span>
                         </div>
-                        <div className='detail'>
+                        <div className='section'>
                             <label>Age: </label>
-                            <span>{user.age}</span>
+                            <span>{item.age}</span>
                         </div>
-                        <div className='detail'>
+                        <div className='section'>
                             <label>Gender: </label>
-                            <span>{user.gender}</span>
+                            <span>{item.gender}</span>
                         </div>
-                        <div className='detail'>
+                        <div className='section'>
                             <label>Email: </label>
-                            <span>{user.email}</span>
+                            <span>{item.email}</span>
                         </div>
-                        <div className='detail'>
-                            <label>numero de telephone: </label>
-                            <span>{user.phone}</span>
+                        <div className='section'>
+                            <label>Phone: </label>
+                            <span>{item.phone}</span>
                         </div>
-                        <div className='detail'>
-                            <label>pois: </label>
-                            <span>{user.weight}</span>
+                        <div className='section'>
+                            <label>Weight: </label>
+
+                            <span>{item.weight}</span>
                         </div>
-                        <div className='detail'>
-                            <label>hauteur: </label>
-                            <span>{user.height}</span>
+                        <div className='section'>
+                            <label>Height: </label>
+                            <span>{item.height}</span>
                         </div>
-                        <div className='detail'>
-                            <label>BirthDate: </label>
-                            <span>{user.birthDate}</span>
+                        <div className='section'>
+                            <label>birthDate: </label>
+                            <span>{item.birthDate}</span>
                         </div>
-                        <div className='detail'>
-                            <label>Group: </label>
-                            <span>{user.bloodGroup}</span>
+                        <div className='section'>
+                            <label>bloodGroup: </label>
+                            <span>{item.bloodGroup}</span>
                         </div>
-                        <div className='detail'>
-                            <label>couleur d'oeil: </label>
-                            <span>{user.eyeColor}</span>
+                        <div className='section'>
+                            <label>EyesColor: </label>
+                            <span>{item.eyeColor}</span>
                         </div>
                     </div>
                 </div>)
